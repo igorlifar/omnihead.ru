@@ -13,6 +13,6 @@ def render(section, request):
 	
 	context = {}
 	context.update({'section': section})
-	context.update({"images": "/static_files/images/"})
+	context.update({"images": "/static_files/img/"})
 	
 	return render_css_to_response(root_css_template, context)
