@@ -22,19 +22,20 @@ $(document).ready(function() {
 				var res = $.evalJSON(data);
 				$("#contact-form").removeClass("loading");
 
-				if (res.errors == {}) {
-					fields = ['author', 'email', 'message']
+				fields = ['author', 'email', 'message']
+				var cnt = 0;
 
-					for (var i = 0; i < fields.length; i++) {
-						var field = fields[i]
-						if (field in res.errors) {
-							$("li." + field).addClass('error');
-						} else {
-							$("li." + field).removeClass('error');
-						}
+				for (var i = 0; i < fields.length; i++) {
+					var field = fields[i]
+					if (field in res.errors) {
+						$("li." + field).addClass('error');
+						cnt++;
+					} else {
+						$("li." + field).removeClass('error');
 					}
-				} else {
-					console.log('123')
+				}
+
+				if (cnt == 0) {
 					$("#contact-form").fadeOut('fast', function() {
 						$("#feedback-sent").fadeIn('fast');
 					});
