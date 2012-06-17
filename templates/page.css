@@ -172,6 +172,12 @@ h2 {
 	width: 550px;
 }
 
+#feedback-sent {
+	font-family: 'PT sans', sans-serif;
+	padding: 10px;
+	display: none;
+}
+
 #feedback li {
 	margin-left: 10px;
 	margin-top: 10px;
@@ -213,6 +219,28 @@ h2 {
 
 #feedback a.button:hover {
 	background-color: #424242;
+}
+
+#feedback li.error input,
+#feedback li.error textarea {
+	border-color: #b43232;
+}
+
+#feedback div.loading {
+	display: none;
+	background: url({{ images }}ajax-loader.gif) no-repeat;
+	float: right;
+	width: 32px;
+	height: 32px;
+	margin-right: 10px;
+}
+
+#feedback form.loading div.loading {
+	display: block;
+}
+
+#feedback form.loading a.button {
+	display: none;
 }
 
 #footer {

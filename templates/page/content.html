@@ -34,15 +34,24 @@
 		</div>
 		<div id="feedback">
 			<h2><a name="feedback">Обратная связь</a></h2>
-			<ul>
-				<li>Ваше имя (<span>обязательно</span>)</li>
-				<li><input type="text" name="author"></li>
-				<li>Ваш email (<span>обязательно</span>)</li>
-				<li><input type="text" name="email"></li>
-				<li>Текст сообщения (<span>обязательно</span>)</li>
-				<li><textarea name="text"></textarea></li>
-				<li><a class="button">Отправить</a></li>
-			</ul>
+			<p id="feedback-sent">
+				Ваше сообщение было успешно отправлено. Мы ответим Вам в ближайшее время.
+			</p>
+			<form action='/feedback/' method='POST' id="contact-form">
+				<ul>
+					{% csrf_token %}
+					<li>Ваше имя (<span>обязательно</span>)</li>
+					<li class="author">{{ form.author }}</li>
+					<li>Ваш email (<span>обязательно</span>)</li>
+					<li class="email">{{ form.email }}</li>
+					<li>Текст сообщения (<span>обязательно</span>)</li>
+					<li class="message">{{ form.message }}</li>
+					<li>
+						<a class="button">Отправить</a>
+						<div class="loading">
+					</li>
+				</ul>
+			</form>
 		</div>
 	</div>
 	<div id="footer">

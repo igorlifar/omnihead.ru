@@ -14,7 +14,9 @@ urlpatterns = patterns('',
 	url(r'^static_files/(?P<path>.*)$', 'django.views.static.serve', {'document_root': root_dir + 'static_files/'}),	
 	url(r'^media_files/(?P<path>.*)$', 'django.views.static.serve', {'document_root': root_dir + 'media_files/'}),
 	
-	url('^', include('pages.urls')),
+
+	url(r'^feedback/$', 'feedback.views.validate'),
+	url(r'^', include('pages.urls')),
 	
     # url(r'^admin/', include(admin.site.urls)),
 )
