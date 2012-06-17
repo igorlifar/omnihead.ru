@@ -10,7 +10,7 @@ def validate(request):
 
 		if form.is_valid():
 			subject = 'Omnihead Web Site'
-			message = 'from: %s \n\n message: %s \n' % (form.cleaned_data['author'], form.cleaned_data['message'])
+			message = 'from: %s(%s)\n\nmessage: %s\n' % (form.cleaned_data['author'], form.cleaned_data['email'], form.cleaned_data['message'])
 			frm = 'mail@omnihead.ru'
 			to = ['igor.lifar@omnihead.ru', 'customers@omnihead.ru']
 
